@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+html, body {
+  background-color: #050a30;
+  height: 100%;
+  margin: 0;
+  color:white;
+  font-family: 'Open Sans', sans-serif;
+}
+.container-fluid{
+  width: 95%;
+}
+@media (min-width: 768px) {
+  .container-fluid{
+    width: 80%;
+    display: block;
+  }
+}
+.active{
+  cursor: pointer;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border: 1px solid gray;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: gray;
+}

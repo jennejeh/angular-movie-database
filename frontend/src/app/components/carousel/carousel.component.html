@@ -1,0 +1,91 @@
+<div class="container-fluid d-none d-sm-block">
+  <ngb-carousel
+    *ngIf="current"
+    class="row"
+    #carousel
+    [interval]="5000"
+    [pauseOnHover]="pauseOnHover"
+    [pauseOnFocus]="pauseOnFocus"
+    (slide)="onSlide($event)"
+  >
+    <ng-template ngbSlide *ngFor="let item of arr0">
+      <div
+      *ngIf="item[0]"
+        class="current deck"
+        [routerLink]="'/watch/' + item[2] + '/' + item[1]"
+      >
+        <img class="card" [src]="item[0]" />
+        <h5 class="title">{{ item[3] }}</h5>
+      </div>
+    </ng-template>
+
+  </ngb-carousel>
+
+  <h1>{{ heading }}</h1>
+  <ngb-carousel
+    class="deck1 row"
+    *ngIf="!current && heading"
+    #carousel
+    [interval]="0"
+    [pauseOnHover]="pauseOnHover"
+    [pauseOnFocus]="pauseOnFocus"
+    (slide)="onSlide($event)"
+  >
+    <ng-template ngbSlide *ngFor="let group of arr2">
+      <div
+        class="col-lg-2 deck normaldeck"
+        *ngFor="let item of group"
+        [routerLink]="'/watch/' + item[2] + '/' + item[1]"
+      >
+        <img class="card" [src]="item[0]" />
+        <h5 class="normaltitle">{{ item[3] }}</h5>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+
+<div class="container-fluid d-block d-sm-none">
+  <ngb-carousel
+    *ngIf="current"
+    class="current row"
+    #carousel
+    [interval]="5000"
+    [pauseOnHover]="pauseOnHover"
+    [pauseOnFocus]="pauseOnFocus"
+    (slide)="onSlide($event)"
+  >
+    <ng-template ngbSlide *ngFor="let item of arr0">
+      <div
+        class="current deck"
+        [routerLink]="'/watch/' + item[2] + '/' + item[1]"
+      >
+        <img class="card" [src]="item[0]" />
+        <h5 class="title">{{ item[3] }}</h5>
+      </div>
+    </ng-template>
+
+  </ngb-carousel>
+
+  <h1>{{ heading }}</h1>
+  <ngb-carousel
+    class="deck1 row"
+    *ngIf="!current && heading"
+    #carousel
+    [interval]="0"
+    [pauseOnHover]="pauseOnHover"
+    [pauseOnFocus]="pauseOnFocus"
+    (slide)="onSlide($event)"
+  >
+    <ng-template ngbSlide  *ngFor="let item of arr1">
+      <div
+        class="col-lg-2 deck normaldeck"
+        *ngIf="item[0]!=null"
+        [routerLink]="'/watch/' + item[2] + '/' + item[1]"
+      >
+        <img class="card" [src]="item[0]" />
+        <h5 class="normaltitle">{{ item[3] }}</h5>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+</div>

@@ -1,0 +1,95 @@
+.container-fluid {
+  margin-bottom: 50px;
+}
+.row {
+  margin: auto;
+}
+.card {
+  border: none;
+  position: relative;
+}
+.deck:after {
+  margin: auto;
+  content: "\A";
+  position: absolute;
+  width: 73%;
+  height: 100%;
+  top: 0;
+  left: 45px;
+  background: linear-gradient(to bottom, transparent 0%, black 100%);
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+
+.deck img {
+  margin: auto;
+  position: relative;
+  z-index: 0;
+  transition: transform 0.2s;
+  width: 80%;
+  /* object-fit: cover; */
+  display: block;
+  float: center;
+}
+.deck {
+  margin-bottom: 80px;
+}
+
+.deck:hover img {
+  transform: scale(1.2);
+}
+
+.title {
+  position: relative;
+  font-size: 14px;
+  bottom: 25px;
+  left: 40px;
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+  .title {
+    position: relative;
+    bottom: 20px;
+    visibility: hidden;
+    left: 5%;
+    z-index: 5;
+  }
+
+  .deck:after {
+    content: "\A";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, transparent 0%, black 100%);
+    opacity: 0;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+
+    background-size: cover;
+  }
+  .deck img {
+    margin: auto;
+    position: relative;
+    z-index: 0;
+    transition: transform 0.2s;
+    width: 100%;
+    display: block;
+    float: center;
+  }
+
+  .deck:hover:after {
+    opacity: 1;
+  }
+  .deck:hover:after .title {
+    visibility: visible;
+  }
+  .deck:hover img {
+    transform: scale(1.2);
+  }
+  .deck:hover .title {
+    visibility: visible;
+  }
+}

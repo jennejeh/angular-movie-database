@@ -1,0 +1,28 @@
+<nav class="navbar navbar-dark navbar-expand-lg">
+  <a (click)="isMenuCollapsed = true" class="navbar-brand" routerLink = "/">USC Films</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"  (click)="isMenuCollapsed = !isMenuCollapsed" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <a (click)="isMenuCollapsed = true" class="nav-link" routerLinkActive="active-link" routerLink = "/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <a (click)="isMenuCollapsed = true" class="nav-link" routerLink = "/mylist">My List</a>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input #input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (selectItem)="update()"[ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter] = "formatter">
+      <ng-template #rt let-r="result" >
+        <div (click)="isMenuCollapsed = true" [routerLink] = "'/watch/'+r.media_type+'/'+r.id" >
+        <img [src]="r.backdrop_path" class="mr-1" style="width: 30px">
+        <ngb-highlight [result]="r.title" ></ngb-highlight>
+        </div>
+      </ng-template>
+
+    </form>
+  </div>
+</nav>

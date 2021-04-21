@@ -1,0 +1,51 @@
+.mod {
+  color: black;
+  line-height: 1.5em;
+}
+::ng-deep .tooltip.show { opacity: 1; }
+::ng-deep .tooltip-inner {
+  background-color: white;
+  opacity: 1 !important;
+  color:gray;
+  border: 1px solid gray;
+
+}
+.tooltip-arrow {
+  border-bottom-color: white;
+  border: 1px solid gray;
+}
+a {
+  text-decoration: none;
+}
+
+.cast-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.info {
+  font-size: 16px;
+}
+.icons {
+  margin-top: 20px;
+}
+.facebook {
+  color: #1877f2;
+}
+.twitter {
+  color: #1da1f2;
+}
+@media (min-width: 768px) {
+  .mod {
+    line-height: 2em;
+  }
+  .modal-body {
+    margin: 10px;
+  }
+  .info {
+    font-size: 18px;
+  }
+  .cast-image {
+    height: 400px;
+  }
+}

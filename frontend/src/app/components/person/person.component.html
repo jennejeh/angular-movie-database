@@ -1,0 +1,32 @@
+  <div class="modal-header mod">
+    <h4 class="modal-title" id="modal-basic-title">{{castName}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngIf="loaded" class="modal-body mod row">
+    <div class= "img-div col-lg-4 col-md-4 col-xs-12">
+      <img *ngIf = "image" class = "cast-image" src="{{ prof_path }}">
+    </div>
+    <div class= "info col-8 col-md-8 col-xs-12">
+    <span *ngIf="birthday">Birth: {{birthday}}<br></span>
+    <span *ngIf="place_of_birth">Birth Place: {{place_of_birth}}<br></span>
+    <span *ngIf="gender">Gender: {{gender}}<br></span>
+    <span *ngIf="homepage">Website: <a href = "{{homepage}}">{{homepage}}</a><br></span>
+    <span *ngIf="department">Known for: {{department}} <br></span>
+    <span *ngIf="also_known_as">Also Known as: {{also_known_as}}<br></span>
+
+    <div class = "icons">
+      <a *ngIf="imdb_id" href= "https://imdb.com/name/{{imdb_id}}" ><fa-icon class = "fa-2x imdb" placement="top" ngbTooltip="Visit IMDB" [icon]="faImdb" style = "color: goldenrod"></fa-icon>	&nbsp;</a>
+    <a *ngIf="instagram_id" href= "https://instagram.com/{{instagram_id}}"><fa-icon class = "fa-2x instagram" placement="top" ngbTooltip="Visit Instagram" [icon]="faInstagram" ></fa-icon>&nbsp;</a>
+    <a *ngIf="facebook_id" href= "https://facebook.com/{{facebook_id}}"><fa-icon class = "fa-2x facebook" placement="top" ngbTooltip="Visit Facebook" [icon]="faFacebook" ></fa-icon>&nbsp;</a>
+    <a *ngIf="twitter_id" href= "https://twitter.com/{{twitter_id}}"><fa-icon class = "fa-2x twitter" placement="top" ngbTooltip="Visit Twitter" [icon]="faTwitter" ></fa-icon>&nbsp;</a>
+    </div>
+
+    </div>
+  </div>
+  <div class="modal-body info mod row" *ngIf="biography">
+    <h2 style = "font-weight: bolder;">Biography</h2>
+    <p>{{biography}}</p>
+  </div>
+<!-- </ng-template> -->

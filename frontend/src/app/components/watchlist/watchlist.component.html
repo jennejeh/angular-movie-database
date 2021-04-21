@@ -1,0 +1,22 @@
+
+<div class="container-fluid">
+  <h1 *ngIf="!this.watchlist || this.watchlist.length < 3">No items found in Watchlist.</h1>
+
+<div *ngIf="this.watchlist && this.watchlist.length > 2" ng-app="frontend">
+  <h1 >My Watchlist</h1>
+  <div class = "row">
+    <div
+    class="col-lg-2 col-sm-8 col-xs-8 deck "
+    *ngFor="let item of arr"
+    [routerLink]="'/watch/' + item[2] + '/' + item[1]"
+  >
+    <img class="d-flex justify-content-center card" [src]="item[0]" />
+    <h5 class="title">{{ item[3] }}</h5>
+  </div>
+  </div>
+    </div>
+
+
+</div>
+
+

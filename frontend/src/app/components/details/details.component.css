@@ -1,0 +1,107 @@
+.row {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.info {
+  box-sizing: border-box;
+}
+.cast-image {
+  width: 100%;
+}
+.cast-card {
+  color: black;
+  text-align: center;
+  height: 120px;
+}
+.tagline {
+  margin-bottom: 20px;
+}
+.card {
+  border-radius: 20px;
+  border: none;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.card-title {
+  padding-top: 15px;
+}
+
+.bold {
+  font-weight: 600;
+}
+.review {
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+
+  padding: 20px;
+}
+.review-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-height: 1.5em;
+  overflow: hidden;
+}
+
+.rating {
+  width: 70px;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 5px;
+  display: inline-block;
+  text-align: center;
+}
+.written {
+  margin-top: 30px;
+  color: gray;
+  margin-bottom: 30px;
+}
+.avatar {
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+#button {
+  margin-bottom: 15px;
+}
+
+.added .removed {
+  width: 100%;
+}
+.fade-hide {
+  transition: 1s linear;
+}
+::-webkit-scrollbar {
+  height: 7px;
+}
+
+
+.facebook {
+  color: #1877f2;
+}
+.twitter {
+  color: #1da1f2;
+}
+.thin {
+  font-weight: lighter;
+}
+@media (min-width: 768px) {
+  .marg {
+    margin-top: 50px;
+  }
+  youtube-player {
+    /* width: 50%; */
+    padding-right: 10px;
+  }
+  .info {
+    padding-left: 90px;
+  }
+  .card {
+    margin-right: 10px;
+  }
+}

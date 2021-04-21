@@ -1,0 +1,91 @@
+<div *ngIf="loaded" class="container-fluid" ng-app="frontend">
+  <div class="row">
+    <div class="col-lg-7 col-md-7 col-xs-12 youtube d-block d-sm-none">
+      <youtube-player videoId={{key}}
+      suggestedQuality="highres"
+      [width] = "350"
+      [height] = "200"
+      >
+      </youtube-player>
+    </div>
+    <div class="col-lg-7 col-md-7 col-xs-12 youtube d-none d-sm-block">
+      <youtube-player videoId={{key}}
+      suggestedQuality="highres"
+      [width] = "700"
+      [height] = "350"
+      >
+      </youtube-player>
+    </div>
+    <div class="info col-lg-5 col-md-5 col-xs-12">
+      <h1 *ngIf="title">{{ title }}</h1>
+      <h5 *ngIf="tagline" style = "font-style: italic;" class = "tagline">{{ tagline }}</h5>
+      <span *ngIf="release_date">{{ release_date }} </span>| &#9733; {{ vote_average }} | <span *ngIf="runtime">{{ runtime }}</span>
+      <p class = "thin" *ngIf="genres.length!=0" style = "margin-bottom: 0px;"><span class = "bold">Genres: </span><span style = "color: lightgray;">{{ genres }}</span></p>
+      <p class = "thin" *ngIf="spoken_languages.length!=0"><span class = "bold">Spoken languages: </span>{{ spoken_languages }}</p>
+     <br> <button id = "button" type="button" class="btn btn-primary" (click)="add(id)" >Add to Watchlist</button>
+
+      <!-- <div id = "added" [ngClass] ="fade()" class="alert alert-success alert-dismissible fade show" role="alert" style= "display: none;"> -->
+        <ngb-alert #added *ngIf="successMessage" id = "added" class="animate-show animate-hide" [type]="'success'"  (closed)="successMessage = ''">  {{ successMessage }}</ngb-alert>
+        <ngb-alert #removed *ngIf="removedMessage" id = "added" class="animate-show animate-hide" [type]="'danger'" (closed)="removedMessage = ''">  {{removedMessage}}</ngb-alert>
+
+      <div id = "removed" class="alert alert-danger alert-dismissible fade show" role="alert" style= "display: none;">
+        Removed from watchlist.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+    <h4 *ngIf="overview" class = "bold">Description</h4>
+    <p *ngIf="overview">{{ overview }}</p>
+
+  <h4 class = "bold">Share</h4>
+    <a class="twitter-share-button" style = "margin-right: 10px;"
+  href= {{twitter}}><fa-icon class = "fa-2x twitter" [icon]="faTwitter"></fa-icon></a>
+    <a class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{youtubeLink}}" class="fb-xfbml-parse-ignore"><fa-icon class = "fa-2x facebook" [icon]="faFacebook"></fa-icon></a>
+
+  <h1 *ngIf="casts.length!=0" class = "marg" style = "font-size: 34px; font-weight: bolder;">Full Cast and Crew</h1>
+  <div *ngIf="casts" class="row flex-row flex-nowrap overflow-auto">
+    <div class = "" *ngFor="let cast of casts">
+      <div *ngIf="cast.profile_path != null" class="card active" (click)="open(cast.id)" style="float: left; width: 200px">
+        <img class="card-img-top card" src="https://image.tmdb.org/t/p/w500/{{ cast.profile_path }}" alt="Card image cap"/>
+        <div class="cast-card">
+          <h5 class="card-title"><span class = "bold">{{cast.name}}<br>AS<br></span>{{cast.character}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="reviews" >
+    <h1 style="font-weight: bolder;" class = "marg">Reviews <span style = "color: gray"> {{reviews.length}}</span></h1>
+    <div
+        class="review row"
+        *ngFor="let review of reviews"
+      >
+      <div class="col-lg-2 col-md-2 col-xs-2" >
+        <img
+          class = "avatar"
+          src={{review.author_details.avatar_path}}
+          alt="Card image cap"
+        />
+      </div>
+        <div class="col-lg-10 col-md-10 col-xs-10">
+<div class= "row">
+  <div class="col-lg-10 col-md-10 col-xs-10"> <h5 class="card-title bold">A review Created By {{review.author }}   </h5></div>
+  <div class="col-lg-2 col-md-2 col-xs-10"> <div class="rating">
+    <span  *ngIf="review.author_details.rating == null"> &#9733;&emsp;0</span>
+    <span  *ngIf="review.author_details.rating != null"> &#9733;&emsp;{{review.author_details.rating}}</span>
+    </div></div>
+</div>
+
+          <p class="written bold">Written by {{review.author}} on {{review.created_at | date:'longDate'}}, {{review.created_at | date:'mediumTime'}}</p>
+          <p class="review-content">{{review.content}}</p>
+          <a href={{review.url}}>Read the rest</a>
+        </div>
+      </div>
+  </div>
+
+</div>
+<app-carousel [data] = "recommended" [media_type] = this.media [id] = this.id></app-carousel>
+<app-carousel [data] = "similar" [media_type] = this.media [id] = this.id></app-carousel>

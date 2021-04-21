@@ -1,0 +1,19 @@
+.content{
+  min-height: 100%;
+  margin-bottom: -80px;
+}
+
+router-outlet {
+  margin:40px;
+}
+
+footer {
+  padding:30px;
+  height:80px;
+  text-align: center;
+  background-color: #020308;
+  bottom: 0 !important;
+  width: 100%;
+
+}
+
